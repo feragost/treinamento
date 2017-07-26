@@ -45,7 +45,8 @@ public class Exercicio4 {
 		webdriver.findElement(By.xpath("//li[@id='ca-history']//a")).click();
 		
 		
-		//Getting all contributors, do not know how to handle the date
+		//Getting all contributors, do not know how to handle the date (Use ul id=pagehistory and others
+		//xpath into the for)
 		By contributorsXPATH = By.xpath("//bdi");
 		List<WebElement> references = webdriver.findElements(contributorsXPATH);
 		for (WebElement webElement : references) {
