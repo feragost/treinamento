@@ -20,7 +20,7 @@ public class HelloWorldWikipedia {
 		/** objeto responsável por definir algumas configurações do browser */
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");
-
+		
 		/** objeto responsável pelo resgate dos elementos de uma página aberta no browser */
 		WebDriver webdriver = new ChromeDriver(options);
 		webdriver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
@@ -41,8 +41,8 @@ public class HelloWorldWikipedia {
 		webdriver.findElement(By.id("searchButton")).click();
 
 		/** funções para finalizar o browser */
-		webdriver.close();
-		webdriver.quit();
+//		webdriver.close();
+//		webdriver.quit();
 
 	}
 
