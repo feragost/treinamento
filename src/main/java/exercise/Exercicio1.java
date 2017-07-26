@@ -1,10 +1,16 @@
 package exercise;
 
+import java.util.List;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import core.WebDriverManager;
 import core.WebDriverRunner;
 
 /**
@@ -21,6 +27,15 @@ public class Exercicio1 {
 	public void run() {
 		// TODO Auto-generated method stub
 
+		WebDriver webdriver = WebDriverManager.getWebDriver();
+		webdriver.get("https://en.wikipedia.org/wiki/Main_Page");
+		
+		By deathText = By.xpath("(//div[descendant::a[@title='Deaths in 2017']])[last()]/div/ul/li/a");
+		List<WebElement> nameList = webdriver.findElements(deathText);
+		for (WebElement webElement : nameList) {
+			System.out.println(webElement.getText());
+		}
+		
 	}
 
 }
