@@ -47,9 +47,6 @@ public class Exercicio3 {
 		webdriver.findElement(By.xpath(".//div[@id='p-lang']//a[contains(@title, 'French')]")).click();
 		
 		//imprimir
-//		String xpath = "(.//ol[@class='references'])";
-//		System.out.println(webdriver.findElement(By.xpath(xpath)).getText());
-		
 		String xpath = ".//span[@class='reference-text']/span/a";
 
 		List<WebElement> list = webdriver.findElements(By.xpath(xpath));
