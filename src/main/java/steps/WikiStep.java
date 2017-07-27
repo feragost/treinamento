@@ -1,6 +1,8 @@
 package steps;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,6 +38,17 @@ public class WikiStep {
 		WebDriver webdriver = WebDriverManager.getWebDriver();
 		return webdriver.findElement(WikiPag.titlePage()).getText();
 
+	}
+	
+	public static boolean existLanguage(String language) {
+		WebDriver webdriver = WebDriverManager.getWebDriver();
+		try {
+			webdriver.findElement(By.xpath(".//li["
+					+ "							contains(@class, 'interlanguage-link interwiki-"+language+"')]"));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }

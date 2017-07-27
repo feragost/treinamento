@@ -39,12 +39,9 @@ public class HelloWorldParameterized extends ParameterizedTest {
 
 	@Test
 	public void testPrimeNumberChecker() {
-
 		WebDriver webdriver = WebDriverManager.getWebDriver();
 		webdriver.get("https://en.wikipedia.org/wiki/Main_Page");
 		WikiStep.search(this.searchTerm);
 		this.collector.checkThat(WikiStep.getPageHeader(), CoreMatchers.equalTo(this.expectedTitle));
-
 	}
-
 }

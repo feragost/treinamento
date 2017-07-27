@@ -4,8 +4,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import core.WebDriverManager;
 import core.WebDriverRunner;
+import exception.NoCancelMessageReceived;
+import exception.UnexpectedErrorMessage;
+import pageobject.PecPag;
+import steps.PecStep;
 
 /**
  * 1. Logar no PEC com um profissional que consiga criar novas fichas de cadastro individual.
@@ -22,8 +29,25 @@ public class Exercicio5 {
 
 	@Test
 	public void run() {
-		// TODO Auto-generated method stub
-
+		PecStep.loginAsTyper();
+		try {
+			PecStep.cancelRecord();
+		} catch (UnexpectedErrorMessage e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		PecStep.logout();
 	}
-
+	
+	@Test
+	public void cancelMessage() {
+		PecStep.loginAsTyper();
+		try {
+			PecStep.cancelRecordAlreadyChanged();
+		} catch (NoCancelMessageReceived e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		PecStep.logout();
+	}
 }
