@@ -4,6 +4,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import core.WebDriverManager;
 import core.WebDriverRunner;
 
 /**
@@ -28,7 +33,23 @@ public class Exercicio4 {
 	@Test
 	public void run() {
 		// TODO Auto-generated method stub
+		WebDriver webdriver = WebDriverManager.getWebDriver();
+		webdriver.get("https://en.wikipedia.org/wiki/Main_Page");
+		By busca = By.id("searchInput");
+		WebElement elementInputSearch = webdriver.findElement(busca);
+		elementInputSearch.sendKeys(termo);
+		webdriver.findElement(By.id("searchButton")).click();;
+		By localizar_linguagem = By.xpath("//h3[@id='p-lang-label']/../div//a[contains(@title,'"+linguagem+"')]");
 
+		WebElement acessar_linguagem = webdriver.findElement(localizar_linguagem);
+		acessar_linguagem.click();
+		
+		By localizar_historico = By.xpath("//li[@id='ca-history']");
+		WebElement acessar_historico = webdriver.findElement(localizar_historico);
+		acessar_historico.click();
+
+		
+		
 	}
 
 }

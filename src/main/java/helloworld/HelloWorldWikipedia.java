@@ -33,16 +33,18 @@ public class HelloWorldWikipedia {
 
 		/** objeto que representa um elemento presente na página */
 		WebElement elementInputSearch = webdriver.findElement(byInputSearch);
+		
+		
 
 		/** ação sobre o elemento em tela: preencher o elemento com o termo */
 		elementInputSearch.sendKeys("Metallica");
-
+        
 		/** ação sobre o elemento em tela: clicar no botão pesquisar */
 		webdriver.findElement(By.id("searchButton")).click();
 
 		/** funções para finalizar o browser */
-		webdriver.close();
-		webdriver.quit();
+		//webdriver.close();
+		//webdriver.quit();
 
 	}
 
