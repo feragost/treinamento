@@ -1,11 +1,25 @@
 package exercise;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import org.hamcrest.CoreMatchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import core.WebDriverManager;
 import core.WebDriverRunner;
+import steps.WikiStep;
 
 /**
  * 1. Logar no PEC com um profissional que consiga criar novas fichas de cadastro individual.
@@ -19,11 +33,38 @@ public class Exercicio5 {
 
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
+	
+	public Exercicio5() {
+	}
 
 	@Test
 	public void run() {
-		// TODO Auto-generated method stub
-
+		WebDriver webdriver = WebDriverManager.getWebDriver();
+		webdriver.get("http://localhost:8080/esus/#/pec");
+		WebDriverWait wait = new WebDriverWait(webdriver, 5);
+		
+		By bt = By.xpath("//input[@type='text']");
+		WebElement login = webdriver.findElement(bt);
+		login.sendKeys("77257556164");
+		
+		By bt1 = By.xpath("//input[@type='password']");
+		WebElement senha = webdriver.findElement(bt1);
+		senha.sendKeys("123456aa");
+	
+		By bt2 = By.xpath("//button[@type='button']");
+		WebElement botaoAcessar = webdriver.findElement(bt2);
+		botaoAcessar.click();
+		
+		By bt3 = By.xpath("//div[@peid='class br.gov.saude.esus.EsusUserMenuViewImpl.cds']/div");
+		WebElement botaoCds = wait.until(ExpectedConditions.visibilityOfElementLocated(bt3));
+		botaoCds.click();
+		
+		By bt4 = By.xpath("//div[@peid='EsusCdsMainViewImpl']/div/div/div");
+		WebElement botaoCadInd = wait.until(ExpectedConditions.visibilityOfElementLocated(bt4));
+		botaoCadInd.click();
+		
+		
+		//this.collector.checkThat(login.getText(), CoreMatchers.equalTo(this.cpf));
 	}
 
 }

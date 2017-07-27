@@ -18,7 +18,7 @@ public class Exercicio2 {
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
 
-	public static final String termo = "avaÃ­ fc";
+	public static final String termo = "avaí ­ fc";
 
 	@Test
 	public void run() {
