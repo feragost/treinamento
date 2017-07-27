@@ -64,8 +64,8 @@ public class Exercicio5 {
 		elementAdicionar.click();
 		
 	}
-	//@Test
-	/*public void semMsg() {
+	@Test
+	public void semMsg() {
 		teste();
 		By byCancelar = ByXPath.xpath(".//div[@peid='CadastroIndividualDetailViewImpl.Cancelar']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(byCancelar));
@@ -76,11 +76,11 @@ public class Exercicio5 {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(byMessageBox));
 		List<WebElement> elementMessageBox = webdriver.findElements(byMessageBox);
 		this.collector.checkThat(elementMessageBox.isEmpty(), CoreMatchers.equalTo(true));
-	}*/
+	}
 	@Test
 	public void comMsg() {
 		teste();
-		By byNome = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.nomeCidadao']");
+		By byNome = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.nomeCidadao']/input");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(byNome));
 		WebElement elementNome = webdriver.findElement(byNome);
 		elementNome.sendKeys("Felipe");
