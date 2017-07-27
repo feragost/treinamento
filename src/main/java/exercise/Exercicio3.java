@@ -40,7 +40,7 @@ public class Exercicio3 {
 		WebElement elementInputSearch = webdriver.findElement(byInputSearch);
 		elementInputSearch.sendKeys(termo);
 		webdriver.findElement(By.id("searchButton")).click();
-		webdriver.findElement(By.xpath("//a[@class='interlanguage-link-target' and @lang='fr']")).click();
+		webdriver.findElement(By.xpath("//a[@class='interlanguage-link-target' and contains(@title, '"+linguagem+"')]")).click();
 		
 		By referencesXPATH = By.xpath("//span[@class='reference-text']//a[@class='external text']");
 		List<WebElement> references = webdriver.findElements(referencesXPATH);

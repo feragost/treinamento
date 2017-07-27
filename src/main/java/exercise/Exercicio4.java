@@ -1,6 +1,12 @@
 package exercise;
 
 import java.util.List;
+import java.util.Locale;
+
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -29,11 +35,11 @@ public class Exercicio4 {
 
 	public static final String termo = "Economy of Jamaica";
 	public static final String linguagem = "French";
-	public static final String dataInicial = "25/03/2017";
-	public static final String dataFinal = "01/07/2017";
+	public static final String dataInicial = "31 octobre 2007";
+	public static final String dataFinal = "31 octobre 2008";
 
 	@Test
-	public void run() {
+	public void run() throws ParseException {
 		// TODO Auto-generated method stub
 		
 		WebDriver webdriver = WebDriverManager.getWebDriver();
@@ -41,16 +47,23 @@ public class Exercicio4 {
 		
 		webdriver.findElement(By.id("searchInput")).sendKeys(termo);
 		webdriver.findElement(By.id("searchButton")).click();
-		webdriver.findElement(By.xpath("//a[@class='interlanguage-link-target' and @lang='fr']")).click();
+		webdriver.findElement(By.xpath("//a[@class='interlanguage-link-target' and contains(@title, '"+linguagem+"')]")).click();
 		webdriver.findElement(By.xpath("//li[@id='ca-history']//a")).click();
 		
+		DateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.FRENCH);
+		Date initialDate = sdf.parse(dataInicial);;
+		Date finalDate = sdf.parse(dataFinal);
 		
-		//Getting all contributors, do not know how to handle the date (Use ul id=pagehistory and others
-		//xpath into the for)
-		By contributorsXPATH = By.xpath("//bdi");
-		List<WebElement> references = webdriver.findElements(contributorsXPATH);
-		for (WebElement webElement : references) {
-			System.out.println(webElement.getText());
+		By contributorsXPATH = By.xpath("//ul[@id='pagehistory']/li");
+		List<WebElement> contributors = webdriver.findElements(contributorsXPATH);
+		for (WebElement webElement : contributors) {
+			By changeDate = By.xpath(".//a[@class='mw-changeslist-date']");
+			String dateText = webElement.findElement(changeDate).getText();
+			Date contribuitionDate = sdf.parse(dateText);
+
+			if (contribuitionDate.after(initialDate) && contribuitionDate.before(finalDate)) {
+				System.out.println(webElement.findElement(By.xpath(".//bdi")).getText());
+			}
 		}
 
 	}
