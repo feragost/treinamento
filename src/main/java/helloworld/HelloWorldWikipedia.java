@@ -41,8 +41,8 @@ public class HelloWorldWikipedia {
 		webdriver.findElement(By.id("searchButton")).click();
 
 		/** funções para finalizar o browser */
-		webdriver.close();
-		webdriver.quit();
+//		webdriver.close();
+//		webdriver.quit();
 
 	}
 
