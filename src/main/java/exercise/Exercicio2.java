@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 
 import core.WebDriverManager;
 import core.WebDriverRunner;
+import steps.WikiStep;
 
 /**
  * A partir da página https://en.wikipedia.org/wiki/Main_Page,
@@ -33,6 +34,7 @@ public class Exercicio2 {
 		
 		WebDriver webdriver = WebDriverManager.getWebDriver();
 		webdriver.get("https://en.wikipedia.org/wiki/Main_Page");
+		WikiStep.search(termo);
 		By xpath = By.xpath("//div[@id='p-lang']//li/a");
         List<WebElement> findElements = webdriver.findElements(xpath);
 		

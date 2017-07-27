@@ -29,6 +29,8 @@ public class Exercicio1 {
 		
 		WebDriver webdriver = WebDriverManager.getWebDriver();
 		webdriver.get("https://en.wikipedia.org/wiki/Main_Page");
+		
+		
 		By byInputSearch = By.xpath("//div/b/a[text()='Recent deaths']/../..//li");
 		List<WebElement> findElements = webdriver.findElements(byInputSearch);
 		
