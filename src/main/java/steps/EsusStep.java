@@ -55,21 +55,25 @@ public class EsusStep {
 		
 	}
 	
-	public static void addCadastroIndividual() {
+	public static String addCadastroIndividual() {
 		
 		WebDriver webdriver = WebDriverManager.getWebDriver();
 		WebDriverWait wait = new WebDriverWait(webdriver, 2);
 		WebElement add = wait.until(ExpectedConditions.visibilityOfElementLocated(EsusPag.cadastrosIndividualAddButton()));
+		String oldURL = webdriver.getCurrentUrl();
 		add.click();
+		return oldURL;
 		
 	}
 	
-	public static void cancelCadastroIndividual() {
+	public static String cancelCadastroIndividual() {
 		
 		WebDriver webdriver = WebDriverManager.getWebDriver();
 		WebDriverWait wait = new WebDriverWait(webdriver, 2);
 		WebElement cancel = wait.until(ExpectedConditions.visibilityOfElementLocated(EsusPag.adicionarCadastroCancelButton()));
 		cancel.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(EsusPag.cadastrosIndividualAddButton()));
+		return webdriver.getCurrentUrl();
 		
 	}
 

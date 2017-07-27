@@ -33,7 +33,7 @@ public class Exercicio5 {
 	public static final String password = "123456aa";
 
 	@Test
-	public void run() {
+	public void cancel1() {
 		// TODO Auto-generated method stub
 		
 		WebDriver webdriver = WebDriverManager.getWebDriver();
@@ -43,12 +43,27 @@ public class Exercicio5 {
 		EsusStep.selectLotacao("SECRETARIAMUNICIPALDESAUDEDEFLORIANOPOLIS", "DIGITADOR");
 		EsusStep.selectCDS();
 		EsusStep.selectCadastroIndividual();
-		EsusStep.addCadastroIndividual();
-		EsusStep.cancelCadastroIndividual();
-		String newURL = webdriver.getCurrentUrl();
+		String oldURL = EsusStep.addCadastroIndividual();
+		String newURL = EsusStep.cancelCadastroIndividual();
 		this.collector.checkThat(oldURL, CoreMatchers.equalTo(newURL));
 		EsusStep.logout();
 
+	}
+	
+	@Test
+	public void cancel2() {
+		WebDriver webdriver = WebDriverManager.getWebDriver();
+		webdriver.get(EsusPag.url);
+		
+		EsusStep.login(login, password);
+		EsusStep.selectLotacao("SECRETARIAMUNICIPALDESAUDEDEFLORIANOPOLIS", "DIGITADOR");
+		EsusStep.selectCDS();
+		EsusStep.selectCadastroIndividual();
+		String oldURL = EsusStep.addCadastroIndividual();
+		//ESCREVER EM ALGUM CAMPO
+		String newURL = EsusStep.cancelCadastroIndividual();
+		this.collector.checkThat(oldURL, CoreMatchers.equalTo(newURL));
+		EsusStep.logout();
 	}
 
 }
