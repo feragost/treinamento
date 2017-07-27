@@ -13,6 +13,7 @@ public class GoogleStep {
 	public static void search(String termo) {
 
 		WebDriver webdriver = WebDriverManager.getWebDriver();
+		
 		webdriver.findElement(GooglePag.inputSearch()).sendKeys(termo);
 		webdriver.findElement(GooglePag.buttonSearch()).click();
 
