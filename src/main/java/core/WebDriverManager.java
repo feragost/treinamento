@@ -19,6 +19,10 @@ public class WebDriverManager {
 
 		return webdriver;
 	}
+	
+	public static void acessPage(String url) {
+		WebDriverManager.getWebDriver().get(url);
+	}
 
 	protected static WebDriver create() {
 

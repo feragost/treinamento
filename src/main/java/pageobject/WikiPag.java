@@ -22,5 +22,4 @@ public class WikiPag {
 	public static By titlePage() {
 		return By.id("firstHeading");
 	}
-
 }

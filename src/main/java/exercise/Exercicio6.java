@@ -4,8 +4,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import core.WebDriverManager;
 import core.WebDriverRunner;
+import steps.PecStep;
 
 /**
  * 1. Logar no PEC com um profissional que consiga criar novas fichas de cadastro individual.
@@ -25,8 +32,21 @@ public class Exercicio6 {
 
 	@Test
 	public void run() {
-		// TODO Auto-generated method stub
-
+		PecStep.loginAsTyper();
+		WebDriver webDriver = WebDriverManager.getWebDriver();
+		WebDriverWait wait = new WebDriverWait(webDriver, 3);
+		WebElement cdsButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[@class='noselect nodrag']")));
+		cdsButton.click();
+		
+		WebElement individualRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[contains(@style, 'cadastro_individual.png')]")));
+		individualRecord.click();
+		WebElement addButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//button[text()='Adicionar']")));
+		addButton.click();
+		
+		WebElement cityInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//input[boolean(@disabled) and contains(@class, ' x-form-text x-form-field x-form-no-radius-right')]")));
+		cityInput.click();
+		
+		PecStep.logout();
 	}
 
 }

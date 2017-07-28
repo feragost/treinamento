@@ -1,5 +1,8 @@
 package steps;
 
+import java.util.Calendar;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import core.WebDriverManager;
+import exception.NoRecentDeaths;
 import pageobject.WikiPag;
 
 /**
@@ -48,6 +52,19 @@ public class WikiStep {
 			return true;
 		} catch (Exception e) {
 			return false;
+		}
+	}
+	
+	public static List<WebElement> getRecentDeaths() throws NoRecentDeaths {
+		WebDriver webDriver = WebDriverManager.getWebDriver();
+		try {
+			int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+			String xPath = "(.//div[descendant::b[descendant::a[@title='Deaths in "+currentYear+"']]])[last()]";
+			WebElement divDeaths = webDriver.findElement(By.xpath(xPath));
+			List<WebElement> recentDeaths = divDeaths.findElements(By.xpath(".//li"));
+			return recentDeaths;
+		} catch (Exception e) {
+			throw new NoRecentDeaths();
 		}
 	}
 
