@@ -1,0 +1,4 @@
+[0727/115524.950:ERROR:process_reader_win.cc(151)] SuspendThread: Acesso negado. (0x5)
+[0727/115524.951:ERROR:exception_snapshot_win.cc(87)] thread ID 12180 not found in process
+[0727/115524.951:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0727/115524.952:ERROR:scoped_process_suspend.cc(39)] NtResumeProcess: Tentou-se acessar um processo de saída.  (0xc000010a)

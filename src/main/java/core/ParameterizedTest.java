@@ -15,7 +15,7 @@ public class ParameterizedTest {
 
 	@After
 	public void finalizeWebDriver() {
-		WebDriverManager.close();
+		//WebDriverManager.close();
 	}
 
 }

@@ -37,7 +37,7 @@ public class WebDriverRunner extends BlockJUnit4ClassRunner {
 
 	private void afterTest() {
 
-		WebDriverManager.close();
+	//	WebDriverManager.close();
 
 	}
 
