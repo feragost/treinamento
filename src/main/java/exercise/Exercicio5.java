@@ -16,7 +16,6 @@ import org.openqa.selenium.By.ByXPath;
 
 import core.WebDriverManager;
 import core.WebDriverRunner;
-import pageobject.GooglePag;
 
 /**
  * 1. Logar no PEC com um profissional que consiga criar novas fichas de cadastro individual.
