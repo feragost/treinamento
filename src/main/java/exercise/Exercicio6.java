@@ -86,9 +86,50 @@ public class Exercicio6 {
 		reuso();
 		
 		By byPreencherNac = ByXPath.xpath(".//div[@peid='FieldSetPanel.nacionalidade']/../../..//input");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(byPreencherNac));
 		List<WebElement> radios = webdriver.findElements(byPreencherNac);
 		
 		radios.get(0).click();
+
+		By byMunicipio = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.localidadeSelectDto']//input");
+		this.collector.checkThat(webdriver.findElement(byMunicipio).isEnabled(), CoreMatchers.equalTo(true));
+				
+		By byData = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.dtEntradaBrasil']/input[@disabled]");
+		this.collector.checkThat(webdriver.findElement(byData).isEnabled(), CoreMatchers.equalTo(false));	
+	}
+
+	@Test
+	public void nacionalidadeNaturalizado() {
+		reuso();
+		
+		By byPreencherNac = ByXPath.xpath(".//div[@peid='FieldSetPanel.nacionalidade']/../../..//input");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(byPreencherNac));
+		List<WebElement> radios = webdriver.findElements(byPreencherNac);
+		
+		radios.get(1).click();
+
+		By byMunicipio = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.localidadeSelectDto']/input[@disabled]");
+		this.collector.checkThat(webdriver.findElement(byMunicipio).isEnabled(), CoreMatchers.equalTo(false));
+				
+		By byData = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.dtEntradaBrasil']/input[@disabled]");
+		this.collector.checkThat(webdriver.findElement(byData).isEnabled(), CoreMatchers.equalTo(false));	
+	}
+	
+	@Test
+	public void nacionalidadeEstrangeiro() {
+		reuso();
+		
+		By byPreencherNac = ByXPath.xpath(".//div[@peid='FieldSetPanel.nacionalidade']/../../..//input");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(byPreencherNac));
+		List<WebElement> radios = webdriver.findElements(byPreencherNac);
+		
+		radios.get(2).click();
+
+		By byMunicipio = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.localidadeSelectDto']/input[@disabled]");
+		this.collector.checkThat(webdriver.findElement(byMunicipio).isEnabled(), CoreMatchers.equalTo(false));
+				
+		By byData = ByXPath.xpath(".//div[@peid='IdentificacaoUsuarioCidadaoForm.dtEntradaBrasil']//input");
+		this.collector.checkThat(webdriver.findElement(byData).isEnabled(), CoreMatchers.equalTo(true));	
 	}
 
 }
