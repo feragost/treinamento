@@ -63,8 +63,61 @@ public class Exercicio5 {
 		WebElement botaoCadInd = wait.until(ExpectedConditions.visibilityOfElementLocated(bt4));
 		botaoCadInd.click();
 		
+		By bt5 = By.xpath("//div[@peid='FichaCadastroIndividualListingViewImpl.Adicionar']/button");
+		WebElement botaoAdd = wait.until(ExpectedConditions.visibilityOfElementLocated(bt5));
+		botaoAdd.click();
 		
-		//this.collector.checkThat(login.getText(), CoreMatchers.equalTo(this.cpf));
+		By bt6 = By.xpath("//div[@peid='CadastroIndividualDetailViewImpl.Cancelar']/button");
+		WebElement botaoCancelar = wait.until(ExpectedConditions.visibilityOfElementLocated(bt6));
+		botaoCancelar.click();
+		
+		webdriver.close();
+		
+	}
+	
+	@Test
+	public void run2() {
+		WebDriver webdriver = WebDriverManager.getWebDriver();
+		webdriver.get("http://localhost:8080/esus/#/pec");
+		WebDriverWait wait = new WebDriverWait(webdriver, 5);
+		
+		By bt = By.xpath("//input[@type='text']");
+		WebElement login = webdriver.findElement(bt);
+		login.sendKeys("77257556164");
+		
+		By bt1 = By.xpath("//input[@type='password']");
+		WebElement senha = webdriver.findElement(bt1);
+		senha.sendKeys("123456aa");
+	
+		By bt2 = By.xpath("//button[@type='button']");
+		WebElement botaoAcessar = webdriver.findElement(bt2);
+		botaoAcessar.click();
+		
+		By bt3 = By.xpath("//div[@peid='class br.gov.saude.esus.EsusUserMenuViewImpl.cds']/div");
+		WebElement botaoCds = wait.until(ExpectedConditions.visibilityOfElementLocated(bt3));
+		botaoCds.click();
+		
+		By bt4 = By.xpath("//div[@peid='EsusCdsMainViewImpl']/div/div/div");
+		WebElement botaoCadInd = wait.until(ExpectedConditions.visibilityOfElementLocated(bt4));
+		botaoCadInd.click();
+		
+		By bt5 = By.xpath("//div[@peid='FichaCadastroIndividualListingViewImpl.Adicionar']/button");
+		WebElement botaoAdd = wait.until(ExpectedConditions.visibilityOfElementLocated(bt5));
+		botaoAdd.click();
+		
+		By bt6 = By.xpath("//div[@peid='IdentificacaoUsuarioCidadaoForm.nomeCidadao']/input");
+		WebElement nome = wait.until(ExpectedConditions.visibilityOfElementLocated(bt6));
+		nome.sendKeys("Gisele");
+		
+		By bt7 = By.xpath("//div[@peid='CadastroIndividualDetailViewImpl.Cancelar']/button");
+		WebElement botaoCancelar = wait.until(ExpectedConditions.visibilityOfElementLocated(bt7));
+		botaoCancelar.click();
+		
+		By bt8 = By.xpath("//div[@peid='EsusMessages.Sim']/button");
+		WebElement botaoSim = wait.until(ExpectedConditions.visibilityOfElementLocated(bt8));
+		botaoSim.click();
+		
+		webdriver.close();
 	}
 
 }
