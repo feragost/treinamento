@@ -59,6 +59,8 @@ public class ExercicioAutomatizado2XPath {
 		WebElement priceElement = WebDriverManager.waitVisibleElement(ShoppingChartSummary.byTotalPurchasePriceButton());
 		System.out.println("Price element: " + priceElement.getText());
 
+		// Clique em CONTINUE TO SHOPPING.
+		WebDriverManager.waitVisibleElement(ShoppingChartSummary.byContinueShoppingButton()).click();
 	}
 
 	private void add3GreenDressesToChart(WebDriver webDriver) {

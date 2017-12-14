@@ -17,4 +17,8 @@ public class ShoppingChartSummary {
 	public static By byTotalPurchasePriceButton() {
 		return By.xpath(xpatShoppingChartSummary + "//*[@id='total_price']");
 	}
+
+	public static By byContinueShoppingButton() {
+		return By.xpath(xpatShoppingChartSummary + "//*[@title='Continue shopping' and @class='button-exclusive btn btn-default']");
+	}
 }
