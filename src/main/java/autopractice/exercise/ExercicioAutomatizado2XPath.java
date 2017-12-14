@@ -32,10 +32,10 @@ public class ExercicioAutomatizado2XPath {
 
 	@Test
 	public void run() {
-		WebDriver driver = WebDriverManager.getWebDriver();
+		WebDriver webDriver = WebDriverManager.getWebDriver();
 		WebDriverManager.acessar(AutomationPracticePag.url);
 
-		add3GreenDressesToChart();
+		add3GreenDressesToChart(webDriver);
 		addTShirtToChart();
 
 		Delay.of(12000);
@@ -47,7 +47,7 @@ public class ExercicioAutomatizado2XPath {
 		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkTShirts()).click();
 	}
 
-	private void add3GreenDressesToChart() {
+	private void add3GreenDressesToChart(WebDriver webDriver) {
 		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
 
 		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
@@ -62,7 +62,7 @@ public class ExercicioAutomatizado2XPath {
 		WebDriverManager.waitVisibleElement(ProductDetailPag.byPlusItemButton()).click();
 
 		// Selecione o tamanho M na combo
-		ProductDetailPag.dropdownSelectElement("M");
+		ProductDetailPag.dropdownSelectElement(webDriver, "M");
 
 		// Selecione a cor VERDE.
 		// Clique em ADD TO CART.

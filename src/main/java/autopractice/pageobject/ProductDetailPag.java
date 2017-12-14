@@ -8,7 +8,6 @@ import core.WebDriverManager;
 
 public class ProductDetailPag {
 
-	public static WebDriver driver = WebDriverManager.getWebDriver();
 	public static String xpathProductDetail = "TODO";
 	public static String xpathProductContainer = "//div[@class='product-container']";
 
@@ -20,9 +19,8 @@ public class ProductDetailPag {
 		return By.xpath("//*[@class='icon-plus']");
 	}
 
-	public static void dropdownSelectElement(String visibleText) {
-		Select dropdown = new Select(
-				driver.findElement(By.xpath("//*[@class='form-control attribute_select no-print']")));
+	public static void dropdownSelectElement(WebDriver webDriver, String visibleText) {
+		Select dropdown = new Select(webDriver.findElement(By.xpath("//*[@class='form-control attribute_select no-print']")));
 		dropdown.selectByVisibleText(visibleText);
 	}
 
