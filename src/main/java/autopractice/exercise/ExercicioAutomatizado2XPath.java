@@ -16,6 +16,7 @@ import autopractice.pageobject.AutomationPracticePag;
 import autopractice.pageobject.ProductContainer;
 import autopractice.pageobject.ProductDetailPag;
 import autopractice.pageobject.ProductList;
+import autopractice.pageobject.ShoppingChartSummary;
 import autopractice.pageobject.TopMenuPag;
 import autopractice.pageobject.TopMenuWomenPag;
 import autopractice.parser.ProductParser;
@@ -45,6 +46,19 @@ public class ExercicioAutomatizado2XPath {
 		// Clique em T-SHIRTS no meu principal
 		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
 		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkTShirts()).click();
+		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
+
+		// Clique em ADD TO CART para o único produto da lista.
+		By addToChart = ProductList.product(1).byButtonAddToChart();
+		WebDriverManager.waitVisibleElement(addToChart).click();
+
+		// Clique em PROCEED TO CHECKOUT
+		WebDriverManager.waitVisibleElement(ProductDetailPag.byButtonProceedToCheckout()).click();
+
+		// Imprima o valor total da compra.
+		WebElement priceElement = WebDriverManager.waitVisibleElement(ShoppingChartSummary.byTotalPurchasePriceButton());
+		System.out.println("Price element: " + priceElement.getText());
+
 	}
 
 	private void add3GreenDressesToChart(WebDriver webDriver) {

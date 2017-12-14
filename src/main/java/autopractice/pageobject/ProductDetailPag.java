@@ -39,4 +39,8 @@ public class ProductDetailPag {
 	public static By byContinueShoppingButton() {
 		return By.xpath("//*[@class='continue btn btn-default button exclusive-medium']");
 	}
+
+	public static By byButtonProceedToCheckout() {
+		return By.xpath("//*[@title='Proceed to checkout']");
+	}
 }
