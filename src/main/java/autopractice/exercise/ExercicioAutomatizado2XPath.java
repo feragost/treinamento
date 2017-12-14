@@ -53,11 +53,11 @@ public class ExercicioAutomatizado2XPath {
 
 	// Selecione a cor VERDE.
 	// Clique em ADD TO CART.
-	WebDriverManager.waitVisibleElement(By.xpath("//*[@name='Green' and contains(@class, 'color_pick')]")).click();
-	WebDriverManager.waitVisibleElement(By.xpath("//*[text()='Add to cart']")).click();
+	WebDriverManager.waitVisibleElement(ProductDetailPag.byGreenColorButton()).click();
+	WebDriverManager.waitVisibleElement(ProductDetailPag.byAddToCartButton()).click();
 
 	// Imprima o preço total da compra.
-	WebElement priceElement = WebDriverManager.waitVisibleElement(By.xpath("//*[@class='ajax_block_cart_total']"));
+	WebElement priceElement = WebDriverManager.waitVisibleElement(ProductDetailPag.byTotalPurchasePriceButton());
 	System.out.println("Price element: " + priceElement.getText());
 
 	Delay.of(12000);
