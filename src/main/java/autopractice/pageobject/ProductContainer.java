@@ -26,7 +26,7 @@ public class ProductContainer {
 	}
 
 	public By byLinkName() {
-		String xpath = this.centerBlock + "//h5[@itemprop='name']/a";
+		String xpath = this.centerBlock + "//h5[@itemprop='url']/a";
 		return By.xpath(xpath);
 	}
 
@@ -54,5 +54,24 @@ public class ProductContainer {
 		String xpath = this.rightBlock + "//a[@class='add_to_compare']";
 		return By.xpath(xpath);
 	}
+	
+	public By byButtonRemoveToCompare() {
+		String xpath = this.rightBlock + "//a[@class='add_to_compare checked']";
+		return By.xpath(xpath);
+	}
+	
+	public By byButtonAddToChart() {
+		String xpath = this.rightBlock + "//a[contains(@class, 'ajax_add_to_cart_button')]";
+		return By.xpath(xpath);
+	}
+	
+	public By productInStock() {
+		String xpath = this.centerBlock + "//span[contains(@class,'availability')]/span";
+		return By.xpath(xpath);
+	}
 
+	public By allColorsToPick() { //usar com findElements pra poder iterar nos itens li
+		String xpath = this.centerBlock + "//ul[contains(@class,'color_to_pick_list')]/li";
+		return By.xpath(xpath);
+	}
 }

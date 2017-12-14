@@ -25,5 +25,24 @@ public class ProductList {
 		String xpath = "//button[contains(@class, 'bt_compare')]";
 		return By.xpath(xpath);
 	}
-
+	
+	public static By produtosCatalogo() { //usar com findElements pra poder iterar nos itens da lista
+		String xpath = "//*[@id='center_column']/ul[contains(@class,'product_list')]//div[@class='row']";
+		return By.xpath(xpath);
+	}
+	
+	public static By precosProdutosCatalogo() { //usar com findElements pra poder iterar nos itens da lista
+		String xpath = "//*[@id='center_column']/ul[contains(@class,'product_list')]//div[@class='row']/div[contains(@class,'right-block')]//span[@itemprop='price']";
+		return By.xpath(xpath);
+	}
+	
+	public static By nomesProdutosCatalogo() { //usar com findElements pra poder iterar nos itens da lista
+		String xpath = "//*[@id='center_column']/ul[contains(@class,'product_list')]//div[@class='row']/div[contains(@class,'center-block')]//a[@itemprop='url']";
+		return By.xpath(xpath);
+	}
+	
+	public static By inStockProdutosCatalogo() { //usar com findElements pra poder iterar nos itens da lista
+		String xpath = "//*[@id='center_column']/ul[contains(@class,'product_list')]//div[@class='row']/div[contains(@class,'center-block')]//span[contains(@class,'available-now')]";
+		return By.xpath(xpath);
+	}
 }

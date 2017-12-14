@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 
 import autopractice.dto.ProductDto;
 import autopractice.pageobject.AutomationPracticePag;
+import autopractice.pageobject.CatalogPag;
+import autopractice.pageobject.CompraPag;
 import autopractice.pageobject.ProductList;
 import autopractice.pageobject.TopMenuPag;
 import autopractice.pageobject.TopMenuWomenPag;
@@ -23,7 +25,7 @@ public class HelloWorldAutomationPractice {
 
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
-
+	
 	@Test
 	public void run() {
 
@@ -32,7 +34,7 @@ public class HelloWorldAutomationPractice {
 		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
 
 		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
-
+		
 		Float v1 = 19.52f;
 		Float v2 = 29.44f;
 		PriceRange.rangeBetween(v1, v2);
