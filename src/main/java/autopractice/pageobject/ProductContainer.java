@@ -54,5 +54,16 @@ public class ProductContainer {
 		String xpath = this.rightBlock + "//a[@class='add_to_compare']";
 		return By.xpath(xpath);
 	}
+	
+	public By byButtonAddToCart() {
+		String xpath = this.rightBlock + "//a[@class='button ajax_add_to_cart_button btn btn-default']";
+		return By.xpath(xpath);
+	}
+	
+	//Retorna o componente com as cores do produto
+	public By byColors() {
+		String xpath = this.centerBlock + "//ul[@class='color-list-container']";
+		return By.xpath(xpath);
+	}
 
 }
