@@ -41,6 +41,11 @@ public class WebDriverManager {
 		WebDriverWait wait = getWebDriverWait();
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+	
+	public static boolean waitInvisibleElement(By locator) {
+		WebDriverWait wait = getWebDriverWait();
+		return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
 
 	public static List<WebElement> waitVisibleElements(By locator) {
 		WebDriverWait wait = getWebDriverWait();

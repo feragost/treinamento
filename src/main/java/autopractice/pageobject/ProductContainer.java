@@ -55,4 +55,9 @@ public class ProductContainer {
 		return By.xpath(xpath);
 	}
 
+	public By byButtonAddToCart() {
+		String xpath = this.rightBlock + "//a[@class='button ajax_add_to_cart_button btn btn-default']";
+		return By.xpath(xpath);
+	}
+
 }

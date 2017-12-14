@@ -4,18 +4,6 @@ import org.openqa.selenium.By;
 
 public class TopMenuWomenPag {
 
-	public static By byLinkTops() {
-		return By.xpath(getXpathLink("Tops"));
-	}
-
-	public static By byLinkTShirts() {
-		return By.xpath(getXpathLink("T-shirts"));
-	}
-
-	public static By byLinkBlouses() {
-		return By.xpath(getXpathLink("Blouses"));
-	}
-
 	public static By byLinkCasualDresses() {
 		return By.xpath(getXpathLink("Casual Dresses"));
 	}
@@ -29,7 +17,7 @@ public class TopMenuWomenPag {
 	}
 
 	private static String getXpathLink(String text) {
-		return TopMenuPag.xpathWomenSubmenu + "//a[text()='" + text + "']";
+		return TopMenuPag.xpathDressesSubmenu + "/..//a[text()='" + text + "']";
 	}
 
 }

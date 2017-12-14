@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 public class TopMenuPag {
 
 	public static String xpathTopMenu = "//div[@id='block_top_menu']";
-	public static String xpathWomenSubmenu = getXpathLi("Women");
-	public static String xpathDressesSubmenu = getXpathLi("Dresses");
-	public static String xpathTShirtSubmenu = getXpathLi("T-shirts");
+	public static String xpathWomenSubmenu = xpathTopMenu + getXpathLi("Women");
+	public static String xpathDressesSubmenu = xpathTopMenu + getXpathLi("Dresses");
+	public static String xpathTShirtSubmenu = xpathTopMenu + getXpathLi("T-shirts");
 
 	public static By byLiWomen() {
 		return By.xpath(xpathWomenSubmenu);
@@ -22,7 +22,7 @@ public class TopMenuPag {
 	}
 
 	private static String getXpathLi(String text) {
-		return "//li[descendant::a[text()='" + text + "']]";
+		return "/ul/li/a[@title='"+ text +"']";
 	}
 
 }

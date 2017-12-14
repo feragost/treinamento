@@ -28,9 +28,12 @@ public class HelloWorldAutomationPractice {
 	public void run() {
 
 		WebDriverManager.acessar(AutomationPracticePag.url);
-		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
-		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
-
+		//WebDriverManager.waitVisibleElement(TopMenuPag.byLiDresses()).click();
+		WebDriverManager.waitVisibleElement(TopMenuPag.byLiTShirt()).click();
+		
+		
+		//WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
+/*
 		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
 
 		Float v1 = 19.52f;
@@ -43,8 +46,8 @@ public class HelloWorldAutomationPractice {
 		for (ProductDto product : allPresentProducts) {
 			System.out.println(product.getName() + " : " + product.getPrice());
 		}
-
-		Delay.of(3000);
+*/
+		Delay.of(1500);
 	}
 
 }

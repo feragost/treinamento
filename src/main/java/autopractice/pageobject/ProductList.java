@@ -6,6 +6,7 @@ public class ProductList {
 
 	public static String xpathProductList = "//ul[contains(@class, 'product_list')]";
 	public static String xpathProductContainer = "//div[@class='product-container']";
+	public static String xpathProductSort = "//select[@id='selectProductSort']";
 
 	public static By by() {
 		return By.xpath(xpathProductList);
@@ -21,9 +22,21 @@ public class ProductList {
 		return By.id("list");
 	}
 
+	public static By divSort() {
+		return By.id("uniform-selectProductSort");
+	}
+	
 	public static By buttonCompare() {
 		String xpath = "//button[contains(@class, 'bt_compare')]";
 		return By.xpath(xpath);
 	}
 
+	public static By totalCompareValue() {
+		String xpath = "//strong[@class='total-compare-val']";
+		return By.xpath(xpath);
+	}
+	
+	public static By divSort(String value) {
+		return By.xpath("//div[@id='uniform-selectProductSort']//option[@value='"+ value +"']");
+	}
 }
