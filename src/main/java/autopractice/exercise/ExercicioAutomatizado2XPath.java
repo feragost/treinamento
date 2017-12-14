@@ -33,8 +33,21 @@ public class ExercicioAutomatizado2XPath {
     @Test
     public void run() {
 	WebDriver driver = WebDriverManager.getWebDriver();
-
 	WebDriverManager.acessar(AutomationPracticePag.url);
+
+		add3GreenDressesToChart();
+		addTShirtToChart();
+
+		Delay.of(12000);
+	}
+
+	private void addTShirtToChart() {
+		// Clique em T-SHIRTS no meu principal
+		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
+		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkTShirts()).click();
+	}
+
+	private void add3GreenDressesToChart() {
 	WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
 
 	WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
@@ -60,7 +73,8 @@ public class ExercicioAutomatizado2XPath {
 	WebElement priceElement = WebDriverManager.waitVisibleElement(ProductDetailPag.byTotalPurchasePriceButton());
 	System.out.println("Price element: " + priceElement.getText());
 
-	Delay.of(12000);
-    }
+	// Clique em CONTINUE TO SHOPPING.
+	WebDriverManager.waitVisibleElement(ProductDetailPag.byContinueShoppingButton()).click();
+	}
 
 }

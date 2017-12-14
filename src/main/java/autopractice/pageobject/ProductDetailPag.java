@@ -37,4 +37,8 @@ public class ProductDetailPag {
 	public static By byTotalPurchasePriceButton() {
 		return By.xpath("//*[@class='ajax_block_cart_total']");
 	}
+
+	public static By byContinueShoppingButton() {
+		return By.xpath("//*[@class='continue btn btn-default button exclusive-medium']");
+	}
 }
