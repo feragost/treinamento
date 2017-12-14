@@ -25,6 +25,7 @@ EXERCÍCIO AUTOMATION PRACTICE
 14. Clique em CONTINUE TO SHOPPING.
 15. Imprima os valores das hints dos dois produtos em VIEWED PRODUCTS
 
-
-
-
+Adiantar pageObjects
+ - Mapear os componentes de cada página em pageObjects.
+ - Fazer scripts que passem por estes novos componentes.
+ - Pensar em reduzir o retrabalho. (fluxos para passos comuns no sistema)
