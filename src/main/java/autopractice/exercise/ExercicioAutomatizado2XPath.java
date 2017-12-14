@@ -27,13 +27,13 @@ import core.steps.Delay;
 @RunWith(WebDriverRunner.class)
 public class ExercicioAutomatizado2XPath {
 
-    @Rule
-    public ErrorCollector collector = new ErrorCollector();
+	@Rule
+	public ErrorCollector collector = new ErrorCollector();
 
-    @Test
-    public void run() {
-	WebDriver driver = WebDriverManager.getWebDriver();
-	WebDriverManager.acessar(AutomationPracticePag.url);
+	@Test
+	public void run() {
+		WebDriver driver = WebDriverManager.getWebDriver();
+		WebDriverManager.acessar(AutomationPracticePag.url);
 
 		add3GreenDressesToChart();
 		addTShirtToChart();
@@ -48,33 +48,33 @@ public class ExercicioAutomatizado2XPath {
 	}
 
 	private void add3GreenDressesToChart() {
-	WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
+		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
 
-	WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
-	WebDriverManager.waitVisibleElement(ProductList.liList()).click();
+		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
+		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
 
-	// WebDriverManager.getWebDriver().findElement(moreButton).click();
-	By moreButton = ProductList.product(3).byButtonMore();
-	WebDriverManager.waitVisibleElement(moreButton).click();
+		// WebDriverManager.getWebDriver().findElement(moreButton).click();
+		By moreButton = ProductList.product(3).byButtonMore();
+		WebDriverManager.waitVisibleElement(moreButton).click();
 
-	// Selecione a quantidade 3 a partir do botão +
-	WebDriverManager.waitVisibleElement(ProductDetailPag.byPlusItemButton()).click();
-	WebDriverManager.waitVisibleElement(ProductDetailPag.byPlusItemButton()).click();
+		// Selecione a quantidade 3 a partir do botão +
+		WebDriverManager.waitVisibleElement(ProductDetailPag.byPlusItemButton()).click();
+		WebDriverManager.waitVisibleElement(ProductDetailPag.byPlusItemButton()).click();
 
-	// Selecione o tamanho M na combo
-	ProductDetailPag.dropdownSelectElement("M");
+		// Selecione o tamanho M na combo
+		ProductDetailPag.dropdownSelectElement("M");
 
-	// Selecione a cor VERDE.
-	// Clique em ADD TO CART.
-	WebDriverManager.waitVisibleElement(ProductDetailPag.byGreenColorButton()).click();
-	WebDriverManager.waitVisibleElement(ProductDetailPag.byAddToCartButton()).click();
+		// Selecione a cor VERDE.
+		// Clique em ADD TO CART.
+		WebDriverManager.waitVisibleElement(ProductDetailPag.byGreenColorButton()).click();
+		WebDriverManager.waitVisibleElement(ProductDetailPag.byAddToCartButton()).click();
 
-	// Imprima o preço total da compra.
-	WebElement priceElement = WebDriverManager.waitVisibleElement(ProductDetailPag.byTotalPurchasePriceButton());
-	System.out.println("Price element: " + priceElement.getText());
+		// Imprima o preço total da compra.
+		WebElement priceElement = WebDriverManager.waitVisibleElement(ProductDetailPag.byTotalPurchasePriceButton());
+		System.out.println("Price element: " + priceElement.getText());
 
-	// Clique em CONTINUE TO SHOPPING.
-	WebDriverManager.waitVisibleElement(ProductDetailPag.byContinueShoppingButton()).click();
+		// Clique em CONTINUE TO SHOPPING.
+		WebDriverManager.waitVisibleElement(ProductDetailPag.byContinueShoppingButton()).click();
 	}
 
 }
