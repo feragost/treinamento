@@ -15,7 +15,7 @@ public class HelloWorldWikipedia {
 	public static void main(String[] args) {
 
 		/** define o caminho para o exe que faz a ponte entre a API do selenium e o browser */
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriverlinux");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver.exe");
 
 		/** objeto responsável por definir algumas configurações do browser */
 		ChromeOptions options = new ChromeOptions();

@@ -44,6 +44,11 @@ public class ProductContainer {
 		String xpath = this.rightBlock + "//span[@class='price-percent-reduction']";
 		return By.xpath(xpath);
 	}
+	
+	public By byButtonAddToCart() {
+		String xpath = this.rightBlock + "//a[contains(@class, 'add_to_cart')]";
+		return By.xpath(xpath);
+	}
 
 	public By byButtonMore() {
 		String xpath = this.rightBlock + "//a[contains(@class, 'lnk_view')]";
