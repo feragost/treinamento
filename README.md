@@ -31,11 +31,11 @@ Adiantar pageObjects
  - Pensar em reduzir o retrabalho. (fluxos para passos comuns no sistema)
 
 Exemplo de sincronia pelo carregamento de uma nova página:
-WebDriverWait wait = new WebDriverWait(this.wd, tempoMaximo);
-ExpectedCondition<Boolean> expected = new ExpectedCondition<Boolean>() {
-  @Override
-  public Boolean apply(WebDriver w) {
-				return w.getCurrentUrl().startsWith(url);
-  }
-};
-wait.until(expected);
+- WebDriverWait wait = new WebDriverWait(this.wd, tempoMaximo);
+- ExpectedCondition<Boolean> expected = new ExpectedCondition<Boolean>() {
+-   @Override
+-   public Boolean apply(WebDriver w) {
+- 	return w.getCurrentUrl().startsWith(url);
+-   }
+- };
+- wait.until(expected);
