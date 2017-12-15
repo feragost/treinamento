@@ -94,5 +94,21 @@ public class TesteRegra4 {
 		
 		assertEquals(0, prices.size());
 	}
+	
+	// Um range inválido, em que o início é após o fim
+	/*@Test
+	public void teste_rangeInvalido() {
+		
+		TesteRegra1.acessarListaSummerDresses();	
+		
+		Float v1 = 30.50f;
+		Float v2 = 19.52f;
+		PriceRange.rangeBetween(v1, v2);
+		Delay.of(1500);
+		
+		List<Float> prices = productsPrices();
+		
+		assertEquals(0, prices.size());
+	}*/
 
 }

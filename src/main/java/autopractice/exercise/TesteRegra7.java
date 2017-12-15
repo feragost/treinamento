@@ -18,7 +18,7 @@ import core.WebDriverRunner;
 public class TesteRegra7 {
 	// Os últimos dois produtos visualizados devem ser listados por ordem inversa de visita em VIEWED PRODUCTS
 	
-	/*@Test
+	@Test
 	public void teste_nenhumProdutoVisualizado() {
 		// Nenhum produto foi visualizado. A lista de VIEWED PRODUCTS deve estar vazia
 		TesteRegra1.acessarListaSummerDresses();	
@@ -26,9 +26,9 @@ public class TesteRegra7 {
 		List<WebElement> elementos = WebDriverManager.findElements(CatalogPag.byViewedProductsFirstItem());
 		elementos.addAll(WebDriverManager.findElements(CatalogPag.byViewedProductsLastItem()));
 		assertEquals(0, elementos.size());
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void teste_umProdutoVisualizado() {
 		// Um produto foi visualizado. A lista de VIEWED PRODUCTS deve mostrá-lo
 		TesteRegra1.acessarListaSummerDresses();
@@ -53,7 +53,7 @@ public class TesteRegra7 {
 		String idProdutoViewed = linkProdutoViewed.substring(indexAntesId+offset, indexDepoisId);
 		
 		assertEquals(idProdutoCatalogo, idProdutoViewed);
-	}*/
+	}
 	
 	@Test
 	public void teste_tresProdutosVisualizados() {
