@@ -46,6 +46,21 @@ public class WebDriverManager {
 		WebDriverWait wait = getWebDriverWait();
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
+	
+	public static boolean waitInvisibleElement(By locator) {
+		WebDriverWait wait = getWebDriverWait();
+		return wait.until((ExpectedConditions.invisibilityOfElementLocated(locator)));
+	}
+	
+	public static Boolean waitAttributeContains(WebElement element, String attribute, String value) {
+		WebDriverWait wait = getWebDriverWait();
+		return wait.until(ExpectedConditions.attributeContains(element, attribute, value));
+	}
+	
+	public static boolean waitAttributeToBe(WebElement element, String attribute, String value) {
+		WebDriverWait wait = getWebDriverWait();
+		return wait.until(ExpectedConditions.attributeToBe(element, attribute, value));
+	}
 
 	public static List<String> getTextOfVisibleElementsWith(By locator) {
 
