@@ -37,6 +37,11 @@ public class WebDriverManager {
 		return new WebDriverWait(webdriver, 10);
 	}
 
+	public static void waitCheckedElement(WebElement priceElement) {
+		WebDriverWait wait = getWebDriverWait();
+		wait.until(ExpectedConditions.attributeToBe(priceElement, "class", "add_to_compare checked"));
+	}
+
 	public static WebElement waitVisibleElement(By locator) {
 		WebDriverWait wait = getWebDriverWait();
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

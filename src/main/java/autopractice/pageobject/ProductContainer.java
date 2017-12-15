@@ -25,6 +25,11 @@ public class ProductContainer {
 		return By.xpath(xpath);
 	}
 
+	public By byProductDescription() {
+		String xpath = this.centerBlock + "//p[@class='product-desc']";
+		return By.xpath(xpath);
+	}
+
 	public By byLinkName() {
 		String xpath = this.centerBlock + "//h5[@itemprop='name']/a";
 		return By.xpath(xpath);
