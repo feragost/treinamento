@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 
 public class CatalogPag {
 
+	public static String xpathCatalogDiv = "//div[@id = 'layered_block_left']";
+	public static String xpathAvailbilityUl = "//ul[@id = 'ul_layered_quantity_0']";
 	public static String xpathPriceRangeContainer = "//div[@class='layered_slider_container']";
 
 	public static By bySpanPriceRange() {
@@ -20,4 +22,14 @@ public class CatalogPag {
 		return By.xpath(xpath);
 	}
 
+	public static By byInStock() {
+		String xpath = xpathAvailbilityUl + "//a[]/span";
+		return By.xpath(xpath);
+	}
+	
+	public static By byCheck(String text) {
+		String xpath = xpathCatalogDiv + "//a[text() = '"+ text +"']";
+		return By.xpath(xpath);
+	}
+	
 }

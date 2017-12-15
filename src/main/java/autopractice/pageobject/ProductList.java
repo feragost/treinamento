@@ -39,4 +39,9 @@ public class ProductList {
 	public static By divSort(String value) {
 		return By.xpath("//div[@id='uniform-selectProductSort']//option[@value='"+ value +"']");
 	}
+	
+	public static By showingItems() {
+		String xpath = "//div[@class='product-count']";
+		return By.xpath(xpath);
+	}
 }
