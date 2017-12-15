@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import autopractice.dto.ProductDto;
+import autopractice.dto.ViewDto;
 import autopractice.pageobject.AutomationPracticePag;
 import autopractice.pageobject.ProductContainer;
 import autopractice.pageobject.ProductDetailPag;
@@ -20,6 +21,7 @@ import autopractice.pageobject.ShoppingChartSummary;
 import autopractice.pageobject.TopMenuPag;
 import autopractice.pageobject.TopMenuWomenPag;
 import autopractice.parser.ProductParser;
+import autopractice.parser.ViewItemParser;
 import autopractice.steps.PriceRange;
 import core.WebDriverManager;
 import core.WebDriverRunner;
@@ -48,6 +50,14 @@ public class ExercicioAutomatizado2XPath {
 		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkTShirts()).click();
 		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
 
+		// Clique em MORE para o terceiro item da lista.
+		By moreButton = ProductList.product(1).byButtonMore();
+		WebDriverManager.waitVisibleElement(moreButton).click();
+		
+		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
+		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkTShirts()).click();
+		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
+
 		// Clique em ADD TO CART para o único produto da lista.
 		By addToChart = ProductList.product(1).byButtonAddToChart();
 		WebDriverManager.waitVisibleElement(addToChart).click();
@@ -57,19 +67,29 @@ public class ExercicioAutomatizado2XPath {
 
 		// Imprima o valor total da compra.
 		WebElement priceElement = WebDriverManager.waitVisibleElement(ShoppingChartSummary.byTotalPurchasePriceButton());
-		System.out.println("Price element: " + priceElement.getText());
+		System.out.println("T-Shirt price element: " + priceElement.getText());
 
 		// Clique em CONTINUE TO SHOPPING.
 		WebDriverManager.waitVisibleElement(ShoppingChartSummary.byContinueShoppingButton()).click();
+
+		// Imprima os valores das hints dos dois produtos em VIEWED PRODUCTS
+		List<ViewDto> allPresentViewItems = ViewItemParser.parseAllItems();
+		System.out.println("Printing the elements...");
+
+		for (ViewDto product : allPresentViewItems) {
+			System.out.println(product.getName() + ": " + product.getHint());
+		}
 	}
 
 	private void add3GreenDressesToChart(WebDriver webDriver) {
+		// Selecione SUMMER DRESSES a partir do item DRESSES do menu principal.
 		WebDriverManager.moveMouseTo(TopMenuPag.byLiWomen());
-
 		WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
+
+		// Clique em LIST para obter uma visualização dos itens em forma de lista.
 		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
 
-		// WebDriverManager.getWebDriver().findElement(moreButton).click();
+		// Clique em MORE para o terceiro item da lista.
 		By moreButton = ProductList.product(3).byButtonMore();
 		WebDriverManager.waitVisibleElement(moreButton).click();
 
@@ -87,7 +107,7 @@ public class ExercicioAutomatizado2XPath {
 
 		// Imprima o preço total da compra.
 		WebElement priceElement = WebDriverManager.waitVisibleElement(ProductDetailPag.byTotalPurchasePriceButton());
-		System.out.println("Price element: " + priceElement.getText());
+		System.out.println("Green dresses price element: " + priceElement.getText());
 
 		// Clique em CONTINUE TO SHOPPING.
 		WebDriverManager.waitVisibleElement(ProductDetailPag.byContinueShoppingButton()).click();
