@@ -6,6 +6,7 @@ public class ProductList {
 
 	public static String xpathProductList = "//ul[contains(@class, 'product_list')]";
 	public static String xpathProductContainer = "//div[@class='product-container']";
+	private static String xpathProductInStock = "//*[@id='center_column']/ul[contains(@class,'product_list')]//div[@class='row']/div[contains(@class,'center-block')]//span[contains(@class,'available-now')]";
 
 	public static By by() {
 		return By.xpath(xpathProductList);
@@ -41,8 +42,16 @@ public class ProductList {
 		return By.xpath(xpath);
 	}
 	
-	public static By inStockProdutosCatalogo() { //usar com findElements pra poder iterar nos itens da lista
-		String xpath = "//*[@id='center_column']/ul[contains(@class,'product_list')]//div[@class='row']/div[contains(@class,'center-block')]//span[contains(@class,'available-now')]";
-		return By.xpath(xpath);
+	public static By byInStockProdutosCatalogo() { //usar com findElements pra poder iterar nos itens da lista
+		return By.xpath(xpathProductInStock);
+	}
+	
+	public static By byNamesProductsInStock() { //usar com findElements pra poder iterar nos itens da lista
+		return By.xpath("//div[contains(@class, 'center-block')]//h5[@itemprop='name' and following-sibling::span[child::span[contains(@class,'available-now')]]]/a");
+	}
+	
+	public static By byPricesProductsInStock() { //usar com findElements pra poder iterar nos itens da lista
+		return By.xpath("//div[contains(@class, 'right-block')]//span[@itemprop='price' and ancestor::div[contains(@class,'right-block') and preceding-sibling::div[contains(@class,'center-block') and child::]]]");
+		//terminar esse xpath
 	}
 }

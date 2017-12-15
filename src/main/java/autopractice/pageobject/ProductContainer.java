@@ -26,7 +26,7 @@ public class ProductContainer {
 	}
 
 	public By byLinkName() {
-		String xpath = this.centerBlock + "//h5[@itemprop='url']/a";
+		String xpath = this.centerBlock + "//h5[@itemprop='name']/a";
 		return By.xpath(xpath);
 	}
 
@@ -51,7 +51,7 @@ public class ProductContainer {
 	}
 
 	public By byButtonAddToCompare() {
-		String xpath = this.rightBlock + "//a[@class='add_to_compare']";
+		String xpath = this.rightBlock + "//a[@class='add_to_compare' and not(contains(@class,'checked'))]";
 		return By.xpath(xpath);
 	}
 	

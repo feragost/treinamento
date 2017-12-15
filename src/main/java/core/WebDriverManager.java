@@ -67,7 +67,14 @@ public class WebDriverManager {
 		}
 
 		return lista;
-
+	}
+	
+	public static WebElement findElement(By locator) {
+		return webdriver.findElement(locator);
+	}
+	
+	public static List<WebElement> findElements(By locator) {
+		return webdriver.findElements(locator);
 	}
 
 	public static void moveMouseTo(By by) {

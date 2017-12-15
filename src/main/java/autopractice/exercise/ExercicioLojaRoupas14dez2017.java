@@ -58,7 +58,7 @@ public class ExercicioLojaRoupas14dez2017 {
 		WebDriverManager.waitVisibleElement(ProductPag.byButtonPlus()).click();
 		
 		// 5. Selecione o tamanho M na combo.
-		Select selectSize = new Select(WebDriverManager.getWebDriver().findElement(ProductPag.bySelectSize()));
+		Select selectSize = new Select(WebDriverManager.findElement(ProductPag.bySelectSize()));
 		selectSize.selectByVisibleText("M");
 		
 		// 6. Selecione a cor VERDE.
