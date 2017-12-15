@@ -51,7 +51,22 @@ public class ProductContainer {
 	}
 
 	public By byButtonAddToCompare() {
-		String xpath = this.rightBlock + "//a[@class='add_to_compare']";
+		String xpath = this.rightBlock + "//a[contains(@class,'add_to_compare')]";
+		return By.xpath(xpath);
+	}
+	
+	public By byButtonAddToCart() {
+		String xpath = this.rightBlock + "//span[text() = 'Add to cart']/..";
+		return By.xpath(xpath);
+	}
+	
+	public By byInStock() {
+		String xpath = this.centerBlock + "//span[@class = 'available-now']";
+		return By.xpath(xpath);
+	}
+	
+	public By byColorsAvailale() {
+		String xpath = this.centerBlock + "//a[@class = 'color_pick']";
 		return By.xpath(xpath);
 	}
 

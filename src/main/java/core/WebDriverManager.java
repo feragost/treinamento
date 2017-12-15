@@ -41,6 +41,11 @@ public class WebDriverManager {
 		WebDriverWait wait = getWebDriverWait();
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+	
+	public static Boolean waitInvisibleElement(By locator) {
+		WebDriverWait wait = getWebDriverWait();
+		return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
 
 	public static List<WebElement> waitVisibleElements(By locator) {
 		WebDriverWait wait = getWebDriverWait();
@@ -93,7 +98,7 @@ public class WebDriverManager {
 		preferences.put("plugins.always_open_pdf_externally", Boolean.TRUE);
 
 		webdriver = new ChromeDriver(options);
-		webdriver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+		webdriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		webdriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
 		return webdriver;

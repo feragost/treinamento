@@ -22,7 +22,7 @@ public class TopMenuPag {
 	}
 
 	private static String getXpathLi(String text) {
-		return "//li[descendant::a[text()='" + text + "']]";
+		return xpathTopMenu + "/ul/li/a[text()='" + text + "']";
 	}
 
 }
