@@ -30,7 +30,7 @@ public class ProductList {
 		String xpath = "//button[contains(@class, 'bt_compare')]";
 		return By.xpath(xpath);
 	}
-
+	
 	public static By totalCompareValue() {
 		String xpath = "//strong[@class='total-compare-val']";
 		return By.xpath(xpath);

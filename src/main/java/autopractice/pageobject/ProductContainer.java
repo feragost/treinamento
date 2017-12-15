@@ -51,12 +51,13 @@ public class ProductContainer {
 	}
 
 	public By byButtonAddToCompare() {
-		String xpath = this.rightBlock + "//a[@class='add_to_compare']";
+		String xpath = this.rightBlock + "//a[contains(@class, 'add_to_compare')]";
 		return By.xpath(xpath);
 	}
 
 	public By byButtonAddToCart() {
-		String xpath = this.rightBlock + "//a[@class='button ajax_add_to_cart_button btn btn-default']";
+		//String xpath = this.rightBlock + "//a[@class='button ajax_add_to_cart_button btn btn-default']";
+		String xpath = this.rightBlock + "//a[contains(@class, 'ajax_add_to_cart_button')]";
 		return By.xpath(xpath);
 	}
 

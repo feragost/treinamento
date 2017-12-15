@@ -33,7 +33,7 @@ public class HelloWorldAutomationPractice {
 		
 		
 		//WebDriverManager.waitVisibleElement(TopMenuWomenPag.byLinkSummerDresses()).click();
-/*
+
 		WebDriverManager.waitVisibleElement(ProductList.liList()).click();
 
 		Float v1 = 19.52f;
@@ -46,7 +46,7 @@ public class HelloWorldAutomationPractice {
 		for (ProductDto product : allPresentProducts) {
 			System.out.println(product.getName() + " : " + product.getPrice());
 		}
-*/
+
 		Delay.of(1500);
 	}
 
