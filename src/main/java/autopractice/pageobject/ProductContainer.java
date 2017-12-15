@@ -1,6 +1,11 @@
 package autopractice.pageobject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import core.WebDriverManager;
 
 public class ProductContainer {
 
@@ -24,6 +29,7 @@ public class ProductContainer {
 		String xpath = this.leftBlock + "//img";
 		return By.xpath(xpath);
 	}
+	
 
 	public By byLinkName() {
 		String xpath = this.centerBlock + "//h5[@itemprop='name']/a";
@@ -51,7 +57,7 @@ public class ProductContainer {
 	}
 
 	public By byButtonAddToCompare() {
-		String xpath = this.rightBlock + "//a[@class='add_to_compare']";
+		String xpath = this.rightBlock + "//a[contains(@class, 'add_to_compare')]";
 		return By.xpath(xpath);
 	}
 	
@@ -64,6 +70,11 @@ public class ProductContainer {
 	public By byColors() {
 		String xpath = this.centerBlock + "//ul[@class='color-list-container']";
 		return By.xpath(xpath);
+	}
+	
+	public static void waitSelected(By locator) {
+		WebDriverWait wait = WebDriverManager.getWebDriverWait();
+		wait.until(ExpectedConditions.attributeContains(locator, "class", "checked"));
 	}
 
 }

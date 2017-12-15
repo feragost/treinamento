@@ -90,11 +90,12 @@ public class Exercicio {
 		/*Imprime o nome do primeiro(e nesse caso único) produto da lista de produtos vistos(VIEWED PRODUCTS)*/
 		//System.out.println(WebDriverManager.waitVisibleElement(ProductList.viewedProduct(1).productName()).getText());
 		
-		//Exercicio 15 Otimizado
+		//Exercicio SS15 Otimizado
 		/*Imprime o nome de todos os produtos da lista de produtos vistos(VIEWED PRODUCTS)*/
 		System.out.println(WebDriverManager.waitVisibleElement(ViewedProductList.viewedProductsNameList()).getText());
 
 		//Teste do novo modelo
+		//Checa a quantidade de itens da lista que estão em estoque no Catalago
 		System.out.println(CatalogPag.checkInStock().getQuantidade());
 
 		Delay.of(3000);

@@ -6,16 +6,16 @@ import org.openqa.selenium.By;
 public class ProductComparison {
 	
 	//Caminho para a lista de produtos
-	public static String xpathProductList = "//td[contains(@class,'ajax_block_product comparison_infos product-block product-";
+	public static String xpathProductList = "//td[contains(@class,'ajax_block_product comparison_infos product-block product-')]";
 	
 	//Retorna a lista de produtos
 	public By getListProducts() {
-		String xpath = "//td[contains(@class,'ajax_block_product comparison_infos product-block product-')]";
+		String xpath = xpathProductList;
 		return By.xpath(xpath);
 	}
 	
 	public static ProductComparisonContainer product(int order) {
-		String xpath = xpathProductList + order + "')]";
+		String xpath = xpathProductList + "[" + order + "]";
 		return new ProductComparisonContainer(xpath);
 	}
 

@@ -1,6 +1,9 @@
 package autopractice.pageobject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import core.WebDriverManager;
 
 public class ProductList {
 
@@ -47,6 +50,12 @@ public class ProductList {
 	public static By topCompareButton() {
 		String xpath = "//button[@class='btn btn-default button button-medium bt_compare bt_compare']";
 		return By.xpath(xpath);
+	}
+	
+	//Retorna a quantidade do botao COMPARE
+	public static String getQuantCompare() {
+		WebElement botaoCompare = WebDriverManager.waitVisibleElement(ProductList.topCompareButton());
+		return botaoCompare.findElement(By.xpath(".//strong")).getText();
 	}
 	
 	//Retorna o botão COMPARE de baixo
