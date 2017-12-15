@@ -23,7 +23,9 @@ public class TesteRegra6 {
 		List<Float> listaRetorno = new ArrayList<Float>();
 		
 		for(WebElement elemento: lista) {
-			listaRetorno.add(Float.parseFloat(elemento.getText())); //tirar simbolo
+			String valor = elemento.getText().replace("$", "");
+			listaRetorno.add(Float.parseFloat(valor));
+			System.out.println(valor);
 		}
 		return listaRetorno;
 	}

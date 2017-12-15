@@ -51,7 +51,6 @@ public class ProductList {
 	}
 	
 	public static By byPricesProductsInStock() { //usar com findElements pra poder iterar nos itens da lista
-		return By.xpath("//div[contains(@class, 'right-block')]//span[@itemprop='price' and ancestor::div[contains(@class,'right-block') and preceding-sibling::div[contains(@class,'center-block') and child::]]]");
-		//terminar esse xpath
+		return By.xpath("//div[contains(@class, 'right-block') and preceding-sibling::div[contains(@class,'center-block') and descendant::span[contains(@class,'available-now')]]]//span[@itemprop='price']");
 	}
 }
