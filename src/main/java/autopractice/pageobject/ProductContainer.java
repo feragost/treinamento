@@ -25,6 +25,11 @@ public class ProductContainer {
 		return By.xpath(xpath);
 	}
 
+	public By byProductDescription() {
+		String xpath = this.centerBlock + "//p[@class='product-desc']";
+		return By.xpath(xpath);
+	}
+
 	public By byLinkName() {
 		String xpath = this.centerBlock + "//h5[@itemprop='name']/a";
 		return By.xpath(xpath);
@@ -55,4 +60,8 @@ public class ProductContainer {
 		return By.xpath(xpath);
 	}
 
+	public By byButtonAddToChart() {
+		String xpath = this.rightBlock + "//a[contains(@class, 'add_to_cart_button')]";
+		return By.xpath(xpath);
+	}
 }

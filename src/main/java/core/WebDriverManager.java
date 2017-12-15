@@ -37,6 +37,11 @@ public class WebDriverManager {
 		return new WebDriverWait(webdriver, 10);
 	}
 
+	public static void waitCheckedElement(WebElement priceElement) {
+		WebDriverWait wait = getWebDriverWait();
+		wait.until(ExpectedConditions.attributeToBe(priceElement, "class", "add_to_compare checked"));
+	}
+
 	public static WebElement waitVisibleElement(By locator) {
 		WebDriverWait wait = getWebDriverWait();
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -93,7 +98,7 @@ public class WebDriverManager {
 		preferences.put("plugins.always_open_pdf_externally", Boolean.TRUE);
 
 		webdriver = new ChromeDriver(options);
-		webdriver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+		webdriver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
 		webdriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
 		return webdriver;
