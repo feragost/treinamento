@@ -8,17 +8,17 @@ import core.WebDriverManager;
 
 public class ShoppingChartSummary {
 
-	public static String xpatShoppingChartSummary = "//*[@id='cart_title']/..";
+	public static String xpathShoppingChartSummary = "//*[@id='cart_title']/..";
 	
 	public static By by() {
-		return By.xpath(xpatShoppingChartSummary);
+		return By.xpath(xpathShoppingChartSummary);
 	}
 
 	public static By byTotalPurchasePriceButton() {
-		return By.xpath(xpatShoppingChartSummary + "//*[@id='total_price']");
+		return By.xpath(xpathShoppingChartSummary + "//*[@id='total_price']");
 	}
 
 	public static By byContinueShoppingButton() {
-		return By.xpath(xpatShoppingChartSummary + "//*[@title='Continue shopping' and @class='button-exclusive btn btn-default']");
+		return By.xpath(xpathShoppingChartSummary + "//*[@title='Continue shopping' and @class='button-exclusive btn btn-default']");
 	}
 }
