@@ -6,8 +6,10 @@ public class CatalogPag {
 
 	public static String xpathPriceRangeContainer = "//div[@class='layered_slider_container']";
 	public static String xpathButtonCompare = "//*[@id='center_column']/div[contains(@class,'content_sortPagiBar')]/div[contains(@class,'top-pagination-content')]/form/button";
-	public static String xpathViewedProductsFirstItem = "//*[@id='viewed-products_block_left']/div[contains(@class,'products-block')]/ul/li[contains(@class,'first_item')]/a";
-	public static String xpathViewedProductsLastItem = "//*[@id='viewed-products_block_left']/div[contains(@class,'products-block')]/ul/li[contains(@class,'last_item')]/a";
+	public static String xpathImageViewedProductsFirstItem = "//*[@id='viewed-products_block_left']/div[contains(@class,'products-block')]/ul/li[contains(@class,'first_item')]/a";
+	public static String xpathImageViewedProductsLastItem = "//*[@id='viewed-products_block_left']/div[contains(@class,'products-block')]/ul/li[contains(@class,'last_item')]/a";
+	public static String xpathNameViewedProductsFirstItem = "//*[@id='viewed-products_block_left']/div[contains(@class,'products-block')]/ul/li[contains(@class,'first_item')]/div[contains(@class,'product-content')]//a[contains(@class,'product-name')]";
+	public static String xpathNameViewedProductsLastItem = "//*[@id='viewed-products_block_left']/div[contains(@class,'products-block')]/ul/li[contains(@class,'last_item')]/div[contains(@class,'product-content')]//a[contains(@class,'product-name')]";
 	
 	public static By bySpanPriceRange() {
 		return By.id("layered_price_range");
@@ -33,11 +35,11 @@ public class CatalogPag {
 	}
 	
 	public static By byViewedProductsFirstItem() {
-		return By.xpath(xpathViewedProductsFirstItem);
+		return By.xpath(xpathImageViewedProductsFirstItem);
 	}
 	
 	public static By byViewedProductsLastItem() {
-		return By.xpath(xpathViewedProductsLastItem);
+		return By.xpath(xpathImageViewedProductsLastItem);
 	}
 	
 	public static By itensColor() { //usar com findElements pra poder iterar nos itens li

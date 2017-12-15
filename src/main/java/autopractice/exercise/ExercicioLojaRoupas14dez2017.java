@@ -93,7 +93,7 @@ public class ExercicioLojaRoupas14dez2017 {
 		WebDriverManager.waitVisibleElement(ShoppingCartSummaryPag.byContinueShopping()).click();
 		
 		// 15. Imprima os valores das hints dos dois produtos em VIEWED PRODUCTS
-		//System.out.println("Hint do primeiro produto: " + WebDriverManager.waitVisibleElement(ProductList.byViewedProductsFirstItem()).getAttribute("title"));
+		//System.out.println("Hint do primeiro produto: " + WebDriverManager.waitVisibleElement(CatalogPag.byViewedProductsFirstItem()).getAttribute("title"));
 		System.out.println("Hint do primeiro produto: " + WebDriverManager.waitVisibleElement(CatalogPag.byViewedProductsLastItem()).getAttribute("title"));
 		
 		Delay.of(1200);
